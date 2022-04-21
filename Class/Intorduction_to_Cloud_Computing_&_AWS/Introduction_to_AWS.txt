@@ -1,0 +1,32 @@
+# What is AWS?
+    -> Amazon Web Serives (AWS)  is a secure cloud services platform, offering compute power, database storage, content delivery and other functionality ot help businesses scale and grow.
+    -> AWS compute capacity is 6 times more then the other service provider in the market
+
+# Advantages of AWS
+    -> Flexibility
+    -> Cost Effective
+    -> Scalability
+    -> Security
+
+# AWS Architecture
+    *) AWS Global Infrastructure
+        -> Amaxon infrstructure is divided into following categories:  
+            1) Regions
+            2) Availability Zones
+
+# Domains of AWS
+    1) Compute
+    2) Migration
+    3) Security & compliance
+        -> services:
+            -> Iam
+            -> kas
+    4) Storage
+        -> services:
+            -> s3
+    5) Networking
+    6) Messaging
+    7) Database
+    8) Management Tools
+        -> services:
+            -> cloud watch

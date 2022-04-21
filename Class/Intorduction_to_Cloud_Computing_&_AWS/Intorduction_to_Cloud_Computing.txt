@@ -1,0 +1,38 @@
+What is Cloud Computing?
+    -> Cloud computing is:
+        *) Storing data/application on remote servers
+        *) Processing data/application form servers
+        *) Accessing data/applications via internet
+
+# Service Models
+    1) IaaS (Infrastructure as a Service)
+        -> Provides virtualized computing resources over the internet
+        -> No worries about the underlying physical machine
+        -> Abstract the user from the physical machine
+    2) PaaS (Platform as a Service)
+        -> No control over the underlying architecture including OS, storage,servers etc.
+        -> The clud Provider given the ability to the customer to deploy customer created apps using programming languages, toos etc that are provided by the Cloud Provider.
+    3) SaaS (Software as a Service)
+        -> Cloud Provider leases application or softwares which are owned by then to its client
+        -> Example: salesforce.com provides the CRM(Customer Relation Manager) on a cloud infrastructure to its clients and charge then for it, but the software is owned by the salesforce company only
+        -> Example: Gmail
+        
+# Deployment Models
+    1) Public Cloud
+        -> A service provider makes resources, such as application and storage, available to the general publick over the internet
+        -> Easy and inexpensive set-up because hardware, application and bandwidth costs are covered by the provider
+        -> No wasted resources because you pay for what you use
+    2) Private Cloud
+        -> Offers hosted services to a limited number of people behind firewall, so it minimizes the security concerns
+        -> Private cloud gives companies direct control over thier data
+    3) Hybrid Cloud
+        -> A cloud computing environment which uses a mix of on-primises, private cloud and third-party,public clud services
+        -> it helps you leverage the best of both worlds
+
+# Cloud Provider
+    1) Google cloud Platform
+    2) Amazon web services
+    3) DigitalOcean
+    4) Terremark
+    5) IBM Cloud
+    6) Microsoft Azure
