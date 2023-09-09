@@ -1,5 +1,5 @@
 *) Bootstrap Script in EC2 Instance:
-	-> './01_Bootstrap_Script.PNG'
+	-> './images/01_Bootstrap_Script.PNG'
 	-> Bootstrap script is a shell script that get executed whenever you create the instance.
 	-> You can write script when you are creating new instance under 'Advanced' Section you will find User Data where you can add Shell script
 	-> Start with:
