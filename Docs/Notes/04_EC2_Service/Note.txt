@@ -1,3 +1,7 @@
+*) EC2 Service:
+	-> Elastic Compute Cloud(EC2)
+	-> you will get VPS
+
 *) Bootstrap Script in EC2 Instance:
 	-> './01_Bootstrap_Script.PNG'
 	-> Bootstrap script is a shell script that get executed whenever you create the instance.
@@ -5,4 +9,4 @@
 	*) Use case:
 		-> To install all the packages/application that you needed on bootstrap of the instance
 		-> To build and deploy the application for that you can use docker, kubernetes etc...
-		-> Posibility is endless as you have knowledge to write shell script at that.
+		-> Possibility is endless as you have knowledge to write shell script at that.
