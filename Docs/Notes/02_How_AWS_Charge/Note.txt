@@ -1,0 +1,7 @@
+*) How Aws Charge:
+	1. Compute:
+		-> CUP, RAM
+	2. Storage:
+		-> Storage Volume like: 10GB, 20GB
+	3. Data Transfer:
+		-> Download or upload from Server and Outside, Inernet

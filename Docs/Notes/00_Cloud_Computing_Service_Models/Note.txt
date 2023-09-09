@@ -1,0 +1,8 @@
+*) Different Types of Cloud Computing Service Models:
+	1. Infrastructure as a Service (Iaas)
+		-> It's their hardware and they give OS, now we can use OS os our own way.
+	2. Platform as a Service (PaaS)
+		-> Using Iaas building your own platform and given service to others.
+		-> Service like: RDS
+	3. Software as a Service (SaaS)
+	4. Function as a Service (FaaS)

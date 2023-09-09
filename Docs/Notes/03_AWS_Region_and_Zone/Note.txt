@@ -1,0 +1,16 @@
+*) Regions & Availability Zone:
+	-> https://aws.amazon.com/about-aws/global-infrastructure/
+	*) Regions:
+		-> In one region there could be multiple Avaiability zone.
+		-> EX: India, Us
+		-> Every region have it's own Code name: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html
+		-> In some case in one region there might not have all the AWS service available, AWS handle it by it's self if you want the service and that does't exist on your availability zone.
+		-> Resion required because of letency time to access service, or Government Poilicy that data should only exist on the given country, Cost Benefits
+	*) Availability Zone:
+		-> Actual infrastructure, Data Center & Server
+		-> 1 Availability Zone could have multiple Data center.
+
+	
+	*) Best Practice:
+		-> We will not put our user data only in one region & Availability zone because if on that zone some disaster happen in that case all the datacenter will get lost and you will no longer be able to get user data.
+		-> So, we store main data into one availability zone but we will add a replica of that daa into another Region as well.

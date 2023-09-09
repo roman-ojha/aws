@@ -1,0 +1,5 @@
+*) Deployment Model of Cloud:
+	1. Public Cloud
+		-> Access overthe internet, anyone can access it, it is publically available
+	2. Private Cloud
+	3. Hybrid Cloud
