@@ -1,0 +1,51 @@
+*) Security Groups:
+    -> https://docs.aws.amazon.com/vpc/latest/userguide/security-groups.html
+    -> It is the virtual firewall that will protect instance.
+    -> What kind of traffic that goes in and out on that instance we can configure inside Security Groups.
+    -> It only give access to the allowed Ports & Ip address to enter
+    -> You can only define allow access rules inside security groups.
+    *) Inbound Rules:
+        -> Incoming request Rules.
+    *) Outbound Rules:
+        -> Outgoing Rules.
+    -> Note that you can't disallow access to specific IP address using Security Groups for that you will use another service.
+    
+    *) Practical example:
+        -> Create new security group here:
+            -> https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#CreateSecurityGroup:
+        *) Inbound Rules:
+            -> We can define different type rules, for now we will define 'SSH' Rule on default port '22':
+                -> Source: where are different types of source that you can define like:
+                    1. Custom IP: you can allow custom I
+                    2. Anywhere: it means that anywhere from the world can access using this firewall.
+                    3. MyIP: it will use your public ip address and the request can ony be able to done using you ip address now.
+                -> PORT: the only port that you will allow can do incoming and outgoing request/response.
+                -> Types:
+                    -> HTTP: if you want to add rules for http request default port is 80 means that it is localhost default port
+                    -> CustomTCP: if you want to allow custom Port like if you application is running on port 8080 in that case you will allow using this type.
+                    -> SSH: if you want to add rules for ssh request
+
+            -> Now let's create a new Ec2 Instance for an example:
+                -> Here you can now attach multiple security that you created or that exist.
+                -> For now we will allow security group which have:
+                    -> Inbound rules with:
+                        -> Type: SSH
+                        -> Source: Anywhere
+                        -> Port: Default(22)
+                -> Now we will instal nginx on that instance by connecting to instance using aws connect feature in web browser.
+                -> and if we will use instance public IP to try to access nginx running server from browser then we won't be able to access it.
+                -> Because we are trying to access using HTTP and on port 80 and we have not allow rules on security group for that because of that we are not able to access nginx server.
+                -> Because we have only allow SSH we are able to do ssh to login into the instance.
+                -> Not let's attach another security group which have:
+                    -> Inbound rules with:
+                        -> Type: HTTP
+                        -> Source: Anywhere
+                        -> Port: Default(80)
+                -> Now we will be able to access nginx from the web browser.
+            -> You can attach and detach security on the fly while running the instance.
+            *) Best Practice:
+                -> Always try to create different security group for SSH and different security for you application related stuff.
+                -> When ever you completed configuring the instance and deploy the application after that you can detach the SSH related security group from it because you don't want it now for some time and other third party won't be able to access instance.
+        
+        *) Outbound Rules:
+            -> You can use the same concept as above but for outgoing request from your server.
