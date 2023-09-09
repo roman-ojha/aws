@@ -1,0 +1,9 @@
+*) Instance Types:
+	-> https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#LaunchInstances:
+	-> EX:
+		-> t2.micro:
+			-> t: instance class
+			-> 2: generation, it get increase on generation by generation
+			-> micro: depends on size.
+	
+	-> When to use what: https://aws.amazon.com/ec2/instance-types/

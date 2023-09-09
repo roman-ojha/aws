@@ -1,0 +1,9 @@
+*) AWS Pricing:
+	-> https://aws.amazon.com/pricing/
+	-> EC2 pricing: https://aws.amazon.com/ec2/pricing/
+		-> On Demand: https://aws.amazon.com/ec2/pricing/on-demand/?refid=ap_card
+		-> Saving Plane: https://aws.amazon.com/savingsplans/?refid=ap_card
+			-> Saving Plane: https://aws.amazon.com/savingsplans/compute-pricing/
+			-> Reserved Instance: https://aws.amazon.com/ec2/pricing/reserved-instances/pricing/
+		-> Spot Instance: https://aws.amazon.com/ec2/spot/?refid=ap_card
+		-> Dedicated Host: https://aws.amazon.com/ec2/dedicated-hosts/

@@ -1,0 +1,13 @@
+*) Get Instance MetaData with UserData:
+	-> aws provide us an api to access the metadata of the instance.
+	-> for that first we will connect to the instance on which we want to know it's metadata
+	-> after that using 'curl' command we will get the metadata.
+		-> curl 169.254.169.254 (gives us which api version are enable)
+		-> curl 169.254.169.254/<version> (get list of option about what you are search for like 'meta-data')
+		-> curl 169.254.169.254/2022-09-24/meta-data (Gives all the list of meta-data available like: 'ami-id')
+		-> curl 169.254.169.254/2022-09-24/meta-data/ami-id (Give current instance ami id)
+		-> NOTE: this say you can find any kind of a meta data about the instance.
+
+	*) Use case:
+		-> you can pass on Shell script on Bootstrap of the instance under 'User data' section and then you can used any kind of the metadata that you want on instance bootstrap.
+			-> EX: instance_id=$(curl 169.254.169.254/2022-09-24/meta-data/ami-id)

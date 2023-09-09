@@ -1,0 +1,12 @@
+*) Windows Instance:
+	*) Connect using Windows
+		-> you can pass Powershell script while creating the windows instance
+		-> to connect to windows vps you can use RDP client:
+			-> first download remote desktop file and then run the rdp file.
+			-> and then Press 'Get password' then upload Private key that you have on your machine.
+			-> Then decrypt the password after that you can see the password.
+	*) Connect using Linux:
+		-> we can use Remote desktop client called 'remmina'
+		-> sudo apt install remmina
+		-> Run remmina software
+		-> use Ip, username & password provided by the instance
