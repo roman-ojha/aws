@@ -1,0 +1,25 @@
+*) Attach Elastic/Static to an EC2 Instance:
+    -> when ever you stop and restart the instance every time the public ip address will get change.
+    -> But you can reserve and attach Static Ip address which will not change on instance restart.
+    -> 
+    *) Practical Example:
+        -> Go to : https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#Addresses:
+        -> there you can allocate new elastic ip address. you can given a name for create ip.
+        -> now we can attach allocated ip address with any instance.
+        -> on Action you can see 'Associate Ip address' click on that and you can attach static ip with any instance.
+    
+    -> By default you can use 5 elastic ip address but you can extend with some process.
+    
+    *) Use case:
+        -> whenever we use 'https://<domain_name>.com/ it forward request to web server on ip address, in that case wan't change the ip address every time we restart the instance rather we will associate the specific website with one static ip address.
+        -> Another use case could be you have configured some of the application with the given public ip address and you don't want that ip to get change ever time.
+
+    *) Pricing:
+        -> If you have attached the elastic ip address and the instance is in running state in that case AWS won't charge
+        -> But if you have created elastic ip and did not attach or attached to instance but is in stop state in that case it will charge you.
+
+
+*) Detach Elastic/Static Ip address:
+    -> If you have attached elastic ip address with some instance the you can't delete elastic ip address.
+    -> Firstly we have to Disassociate Elastic Ip address from the instance.
+    -> Now we can release(delete) allocated elastic ip address.
