@@ -1,0 +1,58 @@
+*) Elastic Block Storage (EBS):
+    -> https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html
+
+    *) Storage area network:
+        -> './images/02_Storage_Area_Network.jpg'
+        -> you can share the disk(storage) over the network using Storage area network.
+        -> If you want to use some storage from the cloud to the client machine in that case we will just mount that storage and we can use it. and it will happen over the network.
+        -> So, The disk that we create over the network which is called as EBS in aws.
+
+    -> So every time we will create the instance we will attach the EBS volume to that instance.
+        -> https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#Volumes:
+    -> And this volume that get attached is through the network and it is called as EBS on aws.
+    -> Because EBS happen over the network because of the we have face small latency somewhere around in ms.
+    -> Also we can attach Multiple EBS on the same instance.
+    -> And if you delete the instance on you choice you can only delete the instance and Volume will not get deleted and you can use that volume to access history of data that you have stored.
+    -> There are multiple types of EBS volume where some single volume can get attach to multiple instances and some single volume can only be able to attach to one instance.
+    -> Whenever we create the EBS volume it will get created on Availability zone so we can only attach those instance which are under the same Availability zone. But you can be able to access different Availability zone EBS volume to different Availability zone instance using Snapshot.
+    -> You can Increase EBS volume size as well on running EBS.
+    *) Different types of EBS volumes:
+        1. io1, io2:
+            -> this volume can get attach to multiple instances.
+    
+    -> We use EBS for data persistent.
+
+    -> Whenever we will create the EBS volume aws will by default create the same replica on same Availability zone. so, if by mistake the original EBS volume get deleted on that case also aws will provide the EBS volume.
+
+    *) Practical Demo:
+        -> Let's create EBS volume: https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#Volumes:
+        -> Let's create 2 EBS volume on same region but different Availability zone: ex 'ap-south-1a', 'ap-south-1b'
+        -> Now let's EC2 create Instance on 'ap-south-1a' for that you have to click on 'Edit' button on Network section under that we can find 'Subnet'
+        -> Let's add the volume on Instance:
+            ->  But by default aws will create Root Volume where OS lives where on windows case it will be 'C:\' and on linux '/'
+            ->  and now you can attach other Volume as well.
+            -> when we will create the Instance The amount of volume that we add while creating the Instance, all those volume will also get added to EBS
+        -> Now we can check all the disk that are attach on the instance using command 'lsblk'.
+        -> Now Let's try to attach the Volume that you have created outside of creating Instance:
+            -> we can go to volumes section and on 'Action' button we can click on Attach Volume button.
+            -> we have created to volumes under different Availability zone:
+                1. ap-south-1b: we can't attach 'ap-south-1b' volume on 'ap-south-1a' instance
+                2. ap-south-1a: but this volume can be able to get attached to 'ap-south-1a' instance.
+        -> If if we will use command 'lsblk' command we can see that we have attached the new Disk
+        -> We can again detach the attached volume.
+        *) How to use those attached volumes:
+            -> Create Volume using command: mkfs.ext4 /dev/<disk_name>
+            -> you can get disk name using 'lsblk'
+            -> Make directory where you can mount:
+                -> mkdir '/test-drive'
+            -> Mount that volume on folder '/test-drive':
+                -> sudo mount /dev/<disk_name> /test-drive/
+                -> mountpoint /test-drive/
+            -> Now let's create some files:
+                -> cd /test-drive/
+                -> sudo vim hello.text
+            -> Now let's unmount that disk:
+                -> sudo umount /test/
+            -> Now we can detach that volume as well.
+        
+        -> NOTE whenever you will restart the instance all the mounted volumes will get automatically unmounted, Todo: find a way to automatically get attached those volumes when get restarted
