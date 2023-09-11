@@ -1,0 +1,46 @@
+*) Snapshots:
+    -> Snapshot is something where you capture the state of let's say 'OS', 'Volume' etc.. and then after some point of time you can restart and revert to that capture snapshot State.
+    -> It help us to go to that point of time data.
+
+*) EBS Snapshots:
+    -> Docs: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html
+    -> AWS store snapshot inside S3
+    -> Different types of Backup:
+        1. Full Backup
+        2. Incremental Backup:
+            -> EBS Snapshot use this one
+        3. Differential Backup
+
+*) Practical Demo:
+    *) Create Snapshot:
+        -> Docs: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html
+        -> First let's create Instance having 2 volume
+        -> After that we will mount second volume on Instance with 'ext4' filesystem
+        -> After that we will insert some data into that second volume.
+        -> now we will go to EBS volume: https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#Volumes:
+        -> And create a new snapshot.
+            -> you can use this format for description: '<instance|application_name>-<date>'
+        -> Now we can check newly created snapshot on: https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#Snapshots:
+        -> Now let's create new file on second volume.
+        -> Now we will create new Volume from the previously created Snapshot.
+        -> Now it will create new volume form that snapshot and we will now attach that volume to an instance and mount that instance.
+        -> After that we can see that we will be able to see the Exact data that are inside the volume where we click the snapshot, in this case we should not create the filesystem.
+
+    *) Automate EBS volume Snapshot:
+        -> https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/automating-snapshots.html
+        *) Way to give a tag:
+            -> First we will give the 'Name' tag for application name
+            -> Second we will give the it 'tierType'
+            -> EX: for volume if it will Database volume then we will give 'database'
+        -> So we can create a Policy where we can create snapshot to those volume while "Type" is 'database'
+        -> we can do this on production application.
+
+    *) Snapshot & AMI Recycle Bin:
+        -> https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-snaps.html
+        -> Created Retention Rule: https://ap-south-1.console.aws.amazon.com/rbin/home?region=ap-south-1#home:
+        -> Get Recycle Bin: https://ap-south-1.console.aws.amazon.com/rbin/home?region=ap-south-1#RecycleBin:
+
+    
+    *) Copy snapshot from one Region to another one:
+        -> We can copy snapshot from one region to another region.
+    

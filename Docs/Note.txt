@@ -1,0 +1,4 @@
+*) Way to give a tag:
+    -> First we will give the 'Name' tag for application name
+    -> Second we will give the it 'tierType'
+        -> EX: for volume if it will Database volume then we will give 'database'
