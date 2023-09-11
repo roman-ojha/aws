@@ -91,3 +91,39 @@
                 -> Then copy all the data from the previous volume to new volume.
                 -> Then Unmount the previous Volume.
                 -> And then mount the new volume on the same location.
+
+        *) How to Resize ROOT EBS Volume:
+            -> First we will modify the volume through AWS: https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#Volumes:
+            -> now if we will run 'lsblk' command on instance then:
+                loop7      7:7    0  40.8M  1 loop /snap/snapd/20092
+                xvda     202:0    0    16G  0 disk 
+                ├─xvda1  202:1    0   7.9G  0 part /
+                ├─xvda14 202:14   0     4M  0 part 
+                └─xvda15 202:15   0   106M  0 part /boot/efi
+                -> Here we can see that 'xvda' block have three increase from 8GB to 16GB
+                -> and it have 3 partition where 'xvda1' is not '/' which is the main partition where OS exist and the size of xvda1 is 7.9GB size.
+            -> So firstly we will going to check which filesystem is 'xvda1' is:
+                -> sudo file -s /dev/xvda1
+                    /dev/xvda1: Linux rev 1.0 ext4 filesystem data, UUID=4513eb34-58e6-408e-8ed7-3d487fe6b35b, volume name "cloudimg-rootfs" (needs journal recovery) (extents) (64bit) (large files)
+                    -> (here we can see that it is ext4 filesystem)
+            -> we can increase the size of the filesystem
+            -> Firstly we will increase the partition:
+                -> growpart /dev/<block_name> <partition_number>
+                    -> For now: growpart /dev/xvda 1
+            -> now if we will run 'lsblk' command then:
+                loop7      7:7    0  40.8M  1 loop /snap/snapd/20092
+                xvda     202:0    0    16G  0 disk 
+                ├─xvda1  202:1    0  15.9G  0 part /
+                ├─xvda14 202:14   0     4M  0 part 
+                └─xvda15 202:15   0   106M  0 part /boot/efi
+                -> (here we can see that it's size got increased)
+            -> now we will run 'df -h' command:
+                Filesystem      Size  Used Avail Use% Mounted on
+                /dev/root       7.6G  2.1G  5.6G  27% /
+                tmpfs           483M     0  483M   0% /dev/shm
+                -> (here we can see that Filesystem size is still haven't increased)
+            -> To increase the Filesystem now we will run:
+                -> sudo resize2fs /dev/xvda1
+            -> Not we have successfully increase the Size of Root Volume.
+
+            -> NOTE: currently the filesystem is 'ext4' but if we will have 'xfs' file system then to increase the filesystem of 'xfs' we have to run this command 'xfs_growfs'
