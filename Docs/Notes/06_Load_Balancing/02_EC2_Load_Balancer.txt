@@ -1,0 +1,47 @@
+*) Demo:
+	*) Classic Load Balancer:
+		-> https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-getting-started.html
+		-> We will create 3 instance and use 1 load balance to forward request to these 4 instances.
+		-> First we will create 3 EC2 instance and add bellow code on User data:
+			-> 	#!/bin/bash
+
+				apt-get update
+				apt-get install nginx -y
+
+				echo "this is $(hostname)" > /var/www/html/index.html
+			-> and we will create different instance in different availability zones with HTTP allow security group.
+		-> Now we will create a Load Balancer on: https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#LoadBalancers:
+		-> NOTE that we will first create classic load balancer But on production it is not recommended to use this load balancer because it is outdated.
+		*) Internal Load Balancer
+			-> On that page we also have option for "Internal Load Balancer" where other user using public Ip can't access this load balancer, We can use this kind of load balancer if client also lives on the private network
+		*) Configure Protocol:
+			-> Here now we can define the Protocol for the request, for now we will use:
+				-> Listener: we are listing on
+					-> Protocol: HTTP
+					-> Port: 80
+				-> Instance: we will send it to instance on:
+					-> Protocol: HTP
+					-> Port: 
+		*) Configure Security Group:
+			-> And add security group which allow HTTP traffic on port 80
+		*) Configure Health check:
+			-> because we only want to sand traffic on healthy server we have to give some server ip with landing page so that Load balancer can check the health of that server.
+			-> For that we should create some RESTApi or some we page on those server.
+				-> Protocol: HTTP
+				-> PORT: 80
+				-> Ping Path: /index.html
+				-> Response Timeout: 5 second (if response will not get send under 5 second it means that it is not healthy)
+				-> Interval: 30 second (on what interval load balancer have to check the health of the server)
+				-> Unhealthy threshold: 2 (load balancer will send 2 request to server if it didn't give us the response then it will declare this server is unhealthy)
+				-> Healthy threshold: 10 (load balance will assume after 10 times of request if the server is running then it is healthy)
+		*) Add instance:
+			-> we will all all 3 instance.
+		*) Attribute:
+			-> enable cross-zone load balancing
+			-> enable connection draining
+		*) Tag:
+			-> Name: CLB
+
+		-> After completion creating Load Balancer we can access the application using DNS name.
+		-> Working:
+			-> now everytime we will request on that DNS it will send the request to different server.

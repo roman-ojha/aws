@@ -1,0 +1,17 @@
+*) Elastic Load Balancing(ELB):
+	-> https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html
+	-> './Images/01_Load_Balancer.jpg'
+	-> When ever we create the instance and we have run the application server inside it now, when ever there is a high traffic requesting to that signal server it will not be able to handle the high traffic request coming, in that case we use load Balancer to balance the request and then send the request to multiple server.
+	-> Now we will not request to Server IP address directly rather we will request to Load Balancer IP address and load balancer will forward request to Server.
+	-> By default Load Balancer uses Round Robin algorithm.
+	-> AWS configured Load Balancer will only forward request to healthy Instance. Healthy instance means the instance where application is running perfectly.
+
+	*) Diffrent types of AWS Load Balancer:
+		1. Application Load Balancers
+			-> Work on application layer
+		2. Network Load Balancers
+			-> Work on transport layer
+		3. Gateway Load Balancers
+		4. Classic Load Balancers
+			-> Previous generation old balancer.
+			-> https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/introduction.html

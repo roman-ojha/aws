@@ -137,4 +137,9 @@
     
 
     *) Encrypt the EBS Volume:
-        -> 
+        -> Whenever we will do volume as encrypted, it will store volume on rest
+        -> as encrypted and when ever we are accessing the data from volume then it have to travel through the network in that case also it will travel on encrypted.
+        *) Demo:
+            -> while creating volume enable encryption
+            -> use default 'aws/ebs' KMS key
+        -> If we are using encryption on EBS volume then on reading and writing aws clams that it have minimum latency.

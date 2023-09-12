@@ -1,0 +1,29 @@
+*) AWS AMI:
+	-> https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html
+	-> We can create the template of our own OS image where we can add ex: nginx, docker by default and we can reuse that image multiple times while creating new instance.
+	-> where on that custome image that we have created whenever we will use to create new instance it alread have downloaded application like: 'nxinx', 'docker' inside and no need a time to install it again.
+	*) Demo:
+		*) Create own image:
+			-> https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html#creating-an-ami
+			-> We will create new Instance.
+			-> afer that we will instan nginx:
+				-> sudo apt update
+				-> sudo apt install nginx -y
+			-> after that we will create AMI of that image.
+			*) One method:
+				-> Do "Actions" on actions we can find "Images and templates" click and then Create Image
+			*) Second method:
+				-> we have added the EBS volume on the instance to store OS so we will going to create the snapshot of that volume
+				-> after that we will go to "Actions" and Create image from snapshot
+			-> After creating AMI we will go under 'AMIs' tab: https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#Images:visibility=owned-by-me
+			-> Now we can create instance from AMI we can do that from "AMIs" page as well or we can do it while create new instance page.
+
+		*) Share AMIs:
+			-> For that you have to do Edit AMIs permissions
+			-> Where you can share or make it public
+
+		*) Copy AMI:
+			-> you can copy AMI to other multiple region so that we can create instance on that region as well.
+
+		*) Delete AMI:
+			-> first we have to de-register from AMI page after that we have to delete the snapshot that had been create for AMIs.
