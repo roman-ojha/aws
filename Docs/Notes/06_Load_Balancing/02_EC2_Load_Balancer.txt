@@ -36,6 +36,7 @@
 				-> Healthy threshold: 10 (load balance will assume after 10 times of request if the server is running then it is healthy)
 		*) Add instance:
 			-> we will all all 3 instance.
+		-> We also have to give access for multi zone where ever we have created the instance.
 		*) Attribute:
 			-> enable cross-zone load balancing
 			-> enable connection draining
@@ -45,3 +46,13 @@
 		-> After completion creating Load Balancer we can access the application using DNS name.
 		-> Working:
 			-> now everytime we will request on that DNS it will send the request to different server.
+		-> Problem:
+			-> we even can be able to do request on each server public ip address, we can solve this problem like this:
+			*) Solution:
+				-> we will first remove the HTTP security group having Anywhere IP address from all the instance after
+				-> So now we have to configure the instance in such a way that only the loadbalancer should be able to access the instance on HTTP with port 80.
+				-> So, we will add new security group for that first we will go to the security group that current instance uses and then we will edit the security group where we will add new security group having following:
+					-> Type: HTTP
+					-> Protocol: TCP
+					-> Port: 80
+					-> Sourse: 'sg-<name_of_the_load_balancer_security_group>'
