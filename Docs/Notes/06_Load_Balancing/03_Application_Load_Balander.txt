@@ -1,0 +1,34 @@
+*) Application Load Balancer:
+	-> https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html
+	-> Here we create target group where load balancer will redirect the request to the target group.
+	-> target group then get attach to multiple instances, Ip address, Lambda function, Application Load Balancer as well.
+	*) Demo:
+		-> We can create target group on: https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#CreateTargetGroup:
+		-> For now we will use bellow settings:
+			-> Type: Instance
+			-> Name: blue-application
+			-> Protocol: HTTP
+			-> Port: 80
+		-> After creating target group we will now create a Application Load Balancer on: https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#CreateALBWizard:
+		-> We will give the same kind of security group that we created inside './02_Classic_Load_Balancer.txt'
+
+*) Path based routing in Application load Balancer:
+	-> Ex: '/' for one target group and '/user' for another target group
+	-> We can use it for microservices for different path
+	*) Demo:
+		-> we will use '/' instance for different target group and '/test' instance for different target group
+		-> for that we can use Scripting User data like this for '/test'
+			#!/bin/bash
+
+			apt-get update
+			apt-get install nginx -y
+
+			mkdir -p /var/www/html/test
+			echo "this is test server and hostname is $(hostname)" > /var/www/html/test/index.html
+		-> After that we will create Target group for '/' path to the instance where '/' is running
+		-> And we will create Target group for '/test' path to those instance where '/test' is running
+		-> Now we will add rules where for different path we will redirect our request to different target group
+		-> For '/test' path we will write condition
+
+*) How to get Client IP address on Application Server:
+	-> https://youtu.be/h4nSFaCfR-w?list=PL6XT0grm_TfgtwtwUit305qS-HhDvb4du
