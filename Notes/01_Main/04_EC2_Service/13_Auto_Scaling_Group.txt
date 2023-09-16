@@ -1,0 +1,36 @@
+*) Auto Scaling Group:
+	-> https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-groups.html
+	-> https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html
+	-> https://docs.aws.amazon.com/autoscaling/ec2/userguide/scale-your-group.html
+	-> Let's take an example where you project that on you server there will be 1000 request per second, but in reality there were 1 mil request per second
+	-> Or you project that on you server there will be 1 mil request per second but there were only 1000 request per second 
+	-> In first case you need more server but in case of second case you need less server.
+	-> Using Auto scaling it will automatically handle these scaling of server.
+	*) Different types of Scaling:
+		1. Vertical Scaling:
+			-> Scaling of the Server like CPU, RAM
+		2. Horizontal Scaling:
+			-> Scaling of the Number of Server
+
+	*) Demo:
+		-> First we will create launch template: https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#LaunchTemplates:
+			-> Where we will create the instance template so that we can use it for later for auto scaling
+			-> And we will put bellow user data:
+				#!/bin/bash
+				apt-get update
+				apt-get install nginx -y
+				service nginx start
+				echo "this is $(hostname)" > /var/www/html/index.html
+
+				-> (NOTE that on production application you will write shell script that will automatically run you application)
+
+		-> Now we will create auto Scaling: https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#CreateAutoScalingGroup:
+		-> Where we will select launch template that we create before.
+		-> We will provide the give setting that we want and we will not enable load balancer for now in this example.
+		-> You can now provide minimum, maximum capacity of instance that you want and then it will 
+		automatically handle creating and deleting instance according to the traffic. for now we will provide:
+			-> minimum: 1
+			-> maximum: 10
+		-> Now it will automatically create and adjust the amount of instance that is required.
+
+		-> NOTE: on the production application we will actually use Auto scaling rather then creating new instance as per traffic.
