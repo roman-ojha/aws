@@ -32,3 +32,11 @@
 
 *) How to get Client IP address on Application Server:
 	-> https://youtu.be/h4nSFaCfR-w?list=PL6XT0grm_TfgtwtwUit305qS-HhDvb4du
+
+*) Stickiness:
+	-> https://docs.aws.amazon.com/elasticloadbalancing/latest/application/sticky-sessions.html
+	-> If one user request for a multiple times then that request should go on the same target group for a specific given period of time.
+	-> We can add the stickiness attribute on target group
+
+*) Cross Zone Load Balancing:
+	-> https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html

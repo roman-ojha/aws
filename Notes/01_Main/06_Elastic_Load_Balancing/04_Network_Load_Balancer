@@ -1,0 +1,10 @@
+*) Network load balancer:
+	-> https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html
+	-> Work on transport layer
+	-> It doesn't have any detail and the content about request but they only this that it does is to deliver the request to exactly same IP address with it's port without and mistake.
+	-> It is more faster then Application load balancer because it doesn't have to process any kind of data and information about the request.
+	->  Network Load Balancers are capable of handling millions of requests per second securely while maintaining ultra-low latencies.
+	*) Demo:
+		-> We will create Network load balancer on EC2 instance.
+		-> we will first create the target group so that we can assign network load balancer to those target group.
+		-> Now we will create NLB from here: https://ap-south-1.console.aws.amazon.com/ec2/home?region=ap-south-1#CreateNLBWizard:

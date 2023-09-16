@@ -2,3 +2,6 @@
     -> First we will give the 'Name' tag for application name
     -> Second we will give the it 'tierType'
         -> EX: for volume if it will Database volume then we will give 'database'
+
+*) Enable HTTPS encrypted:
+    -> https://youtu.be/qUfqpNb1SLA?list=PL6XT0grm_TfgtwtwUit305qS-HhDvb4du&t=434
