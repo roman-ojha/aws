@@ -1,0 +1,9 @@
+*) IAM:
+  -> https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html
+
+*) Demo:
+  *) Create new user
+    -> https://youtu.be/B1PpTEfVDw4?list=PL6XT0grm_TfgtwtwUit305qS-HhDvb4du&t=246
+    -> we can create a new user inside: https://us-east-1.console.aws.amazon.com/iamv2/home?region=ap-south-1#/users
+    -> after creating the user we can login using : https://<user_id>.signin.aws.amazon.com/console
+    -> or we can login with IAM user accoung on login page of aws.
