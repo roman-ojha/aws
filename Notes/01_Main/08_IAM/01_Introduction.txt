@@ -1,5 +1,5 @@
 *) IAM:
-  -> https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html
+  -> Docs: https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html
 
 *) Demo:
   *) Create new user

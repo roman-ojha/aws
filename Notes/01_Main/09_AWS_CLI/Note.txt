@@ -1,0 +1,33 @@
+*) AWS CLI:
+  -> Docs: https://docs.aws.amazon.com/cli/?icmpid=docs_homepage_mgmtgov
+
+  *) Commands:
+    -> aws configure (add provided access key id and secret key)
+    *) Access service & resources using help command:
+      -> aws help
+        -> (here we will be able to see all the AWS services ex: 'ec2')
+      -> aws ec2 help
+        -> (now we will be able to see all the command that are available inside ec2)
+        -> (here ex: we can see 'describe-instances' command)
+      -> aws ec2 describe-instances help
+        -> (now we will see all the possible commands and flags that are available on this command)
+        -> (like ex: '--region' flag)
+      -> aws ec2 describe-instances --region ap-south-1
+
+    *) EX to create instance of os 'ubuntu' with 't2 micro' on 'ap-south-1':
+      -> aws ec2 run-instances --image-id=ami-0f5ee92e2d63afc18 --instance-type=t2.micro --region=ap-south-1
+
+  *) Demo:
+    *) Use AWS CLI:
+      -> https://youtu.be/nooY45x12Qw?list=PL6XT0grm_TfgtwtwUit305qS-HhDvb4du&t=86
+      -> First create user for CLI and create access key for that user
+      -> then Install AWS CLI on you os: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+      *) Login to AWS CLI:
+        -> aws configure (add provided access key id and secret key)
+
+    *) Handle Multiple AWS Account:
+      -> aws configure --profile <account_name>
+        -> (give access key id and access key secret)
+      -> <aws_command_to_access_service> --profile=<account_name>
+        -> (run aws command for given account)
+
