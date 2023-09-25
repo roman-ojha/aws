@@ -1,0 +1,6 @@
+*) MFA (Multi factor authentication):
+  *) Demo:
+    -> https://youtu.be/A2Bc5dOwx_c?list=PL6XT0grm_TfgtwtwUit305qS-HhDvb4du&t=47
+    -> Assign MFA to root user here: https://us-east-1.console.aws.amazon.com/iamv2/home?region=ap-south-1#/security_credentials/mfa
+    -> We can go to this page to manage MFA: https://us-east-1.console.aws.amazon.com/iamv2/home#/security_credentials
+    -> We can also enable the Security credentials for IAM user

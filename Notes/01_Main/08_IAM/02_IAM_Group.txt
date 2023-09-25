@@ -1,0 +1,7 @@
+*) IAM Groups:
+  -> https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups.html
+  -> Todo: Administative access permission vs root user
+  -> Todo: what will happen if we will attach 's3-allow' & 's3-denied' group for the same user, will user be able to access the s3 resources?.
+
+  *) Demo:
+    -> https://youtu.be/3UAjLVGr-xg?list=PL6XT0grm_TfgtwtwUit305qS-HhDvb4du&t=54
