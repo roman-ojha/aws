@@ -1,0 +1,38 @@
+*) EKS:
+    -> https://docs.aws.amazon.com/eks/?icmpid=docs_homepage_containers
+    -> EKS is managed Kubernetes Service
+    -> AWS is responsible for managing control plane of your k8s cluster
+    -> Provisioning/Maintaining master nodes for you.
+    -> Install Necessary Control plane processes, API Server, Scheduler, Controller Manager, etcd.
+    -> AWS Make it easy to Scale up and backup you cluster
+    -> The only thing that we have to worry about is Worker nodes.
+    
+
+*) Steps to Setup Cluster
+    1) Creating EKS Cluster:
+        -> './07_Creating_EKS_Cluster.png'
+    2) Creating Worker Nodes:
+        -> After creating your EKS cluster you have to work with Worker nodes.
+        -> To create Node Group we need
+            -> To Create A Node Group.
+                -> Node Group is a group of Nodes which you will going to use as a Worker Nodes with in your k8s environment.
+            -> To select instance type
+            -> Define min/max number of nodes in your node group
+            -> Specify which EKS cluster to connect to you Worker Nodes
+    3) Connect to our Cluster from our Local machine:
+        -> To connect to the EKS cluster:
+            -> we will get the connection information from EKS cluster
+            -> run 'kubectl config set-cluster' and pass the information that we have to connect to the cluster
+    
+*) Different Ways to Create Cluster
+    1. AWS UI Console Environment
+        -> More harder way to create a cluster
+    2. Eksctl:
+        -> it is a tool that will help us to create the Cluster
+        -> like you can create a cluster with just single command like: 'eksctl create cluster'
+    3. IAC(Infrastructure as Code):
+        -> Like: Terraform/Pulumi
+        
+
+*) Setup Eksctl:
+    -> 
