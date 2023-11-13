@@ -24,10 +24,13 @@
       -> then Install AWS CLI on you os: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
       *) Login to AWS CLI:
         -> aws configure (add provided access key id and secret key)
+        *) Where Does AWS store it's user credentials after running above command:
+          -> '~/.aws/credentials'
 
     *) Handle Multiple AWS Account:
       -> aws configure --profile <account_name>
         -> (give access key id and access key secret)
       -> <aws_command_to_access_service> --profile=<account_name>
         -> (run aws command for given account)
+        
 

@@ -35,4 +35,24 @@
         
 
 *) Setup Eksctl:
-    -> 
+    -> Install Eksctl: https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html
+    -> Configure credentials Eksctl: https://youtu.be/CukYk43agA4?t=658
+
+*) Commands:
+    -> eksctl --help (to get all the available commands)
+    *) Create Cluster
+        -> eksctl create --help (to get all the available commands for eksctl create)
+        -> eksctl create cluster --help
+        -> eksctl create cluster -n <name_of_the_cluster> --nodegroup-name <name_of_the_node_group> --region <region_name> --node-type <ec2_instance_type> --nodes <number_of_nodes>
+        -> EX: eksctl create cluster --name test-cluster --version 1.28 --nodegroup-name linux-nodes --region ap-south-1 --node-type t2.micro --nodes 2
+    *) Delete Cluster
+        -> eksctl delete cluster -n <cluster_name>
+        -> eksctl delete cluster --name test-cluster --region ap-south-1
+        
+*) Create EKS using AWS Console:
+    -> https://youtu.be/Bo6-VdItVsw
+    -> https://github.com/Bhoopesh123/aws/blob/main/README.md
+    
+*) Access EKS cluster using kubectl command:
+    -> aws sts get-caller-identity (You can get the caller identity detail)
+    -> aws eks --region <region_name_where_cluster_exist> update-kubeconfig --name <cluster_name> (this will add the cluster on your '~\.kube\config' path where all the configuration for kubectl exist)
